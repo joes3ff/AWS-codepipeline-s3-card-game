@@ -29,13 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsWon = [];
 
         for (let i = 0; i < cardArray.length; i++) {
-            const card = document.createElement('img');
+            const cardContainer = document.createElement('div');  // Create card div
+            cardContainer.classList.add('card');
+        
+            const card = document.createElement('img');  // Create image inside the card
             card.setAttribute('src', 'images/blank.png');
             card.setAttribute('data-id', i);
             card.addEventListener('click', flipCard);
-            grid.appendChild(card);
+        
+            cardContainer.appendChild(card);  // Append image inside the card
+            grid.appendChild(cardContainer);  // Append the card to the grid
         }
     }
+
 
     function flipCard() {
         let cardId = this.getAttribute('data-id');
